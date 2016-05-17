@@ -1,6 +1,5 @@
-<html>
-<head>
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+{% extends "base.html" %}
+{% block script %}
 <script>
 function initMap()
 {
@@ -63,17 +62,14 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 }
 </script>
 
-<style type="text/css">
-#googleMap
-{
-	width: 700px;
-	height: 500px;
-}
+{% endblock %}
 
-</style>
+{% block head %}
 
-</head>
-<body onload="initMap();">
+{% endblock %}
+
+{% block content %}
+
 <h1>Blog</h1>
 
 {% if user.is_authenticated %}
@@ -94,5 +90,4 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
     <a href="/login/?next={{ request.path }}">Login</a>
 {% endif %}
 <a href="/home/">Home</a>
-</body>
-</html>
+{% endblock %}

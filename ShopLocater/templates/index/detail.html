@@ -1,7 +1,5 @@
-<html>
-<head>
-
-<script src="http://maps.google.com/maps/api/js?sensor=false" type="text/javascript"></script>
+{% extends "base.html" %}
+{% block script %}
 <script>
 function initMap()
 {
@@ -85,16 +83,14 @@ function displayRoute(origin, destination, service, display) {
 }
 </script>
 
-<style type="text/css">
-#googleMap
-{
-	width: 700px;
-	height: 500px;
-}
-</style>
+{% endblock %}
 
-</head>
-<body onload="initMap();">
+{% block head %}
+
+{% endblock %}
+
+{% block content %}
+
 <h1>{{ shop.name }}</h1>
 
 {% if user.is_authenticated %}
@@ -113,5 +109,4 @@ function displayRoute(origin, destination, service, display) {
     <a href="/login/?next={{ request.path }}">Login</a>
 {% endif %}
 <a href="/home/">Home</a>
-</body>
-</html>
+{% endblock %}
