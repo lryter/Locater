@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends document.cookie|yesno:"basemobile.html,base.html" %}
 {% block script %}
 <script>
 function initMap()
@@ -47,7 +47,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 
 {% block content %}
 {% if user.is_authenticated %}    
-<h1>Add shop</h1>
+<h1 id="mobiledetection" name="false">Add shop</h1>
 
 
 
