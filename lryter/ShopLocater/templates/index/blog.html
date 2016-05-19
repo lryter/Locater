@@ -64,22 +64,7 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 {% endblock %}
 
 {% block head %}
-<div class="mysidebar">
-<h4>
-<a href="?">Alle</a><br>
-<a href="?search=1&category=Gastronomie">Gastronomie</a><br>
-<a href="?search=2&category=Lebensmittel">Lebensmittel</a><br>
-<a href="?search=3&category=Elektronik">Elektronik</a><br>
-<a href="?search=4&category=Textil/Fashion">Textil & Fashion</a><br>
-<a href="?search=5&category=Fahrzeug">Fahrzeug</a><br>
-<a href="?search=6&category=Schmuck">Schmuck</a><br>
-<a href="?search=7&category=Fitness/Sport">Fitness & Sport</a><br>
-<a href="?search=8&category=Beauty/Wellness">Beauty & Wellness</a><br>
-<a href="?search=9&category=Abenteuer/Freizeit">Abenteuer & Freizeit</a><br>
-<a href="?search=10&category=Bildung">Bildung</a><br>
-<a href="?search=11&category=Diverses">Diverses</a><br>
-</h4>
-</div>
+
 {% endblock %}
 
 {% block content %}
@@ -87,41 +72,16 @@ function handleLocationError(browserHasGeolocation, infoWindow, pos) {
 <h1>Shops</h1>
 
 {% if user.is_authenticated %}
-
-<h1>{{ request.GET.category }}</h1>
-
-        <table style="width:100%" class="table">
+<table>
+        {% for field in shops %}
             <tr>
-                <td>Name          </td>
-                <td>Beschreibung</td>
-                <td>Bild</td>
-                <td>Koordinaten X</td>
-                <td>Koordinaten Y</td>
-            </tr>
-         {% if request.GET.search %}
-            {% for field in shops %}
-            {% if request.GET.search|add:0 == field.category %}
-            <tr id="hover" onclick="window.location.href='../{{ field.id }}'">
                 <td><a href="../{{ field.id}}">{{ field.name }}</a></td>
                 <td>{{ field.description }}</td>
                 <td><img src="../media/{{ field.pictures }}" style="width: 100px; height:100px;"></td>
                 <td>{{ field.coordinatesx }}</td>
                 <td>{{ field.coordinatesy }}</td>
             </tr>
-            {% endif %}
         {% endfor %}
-        {% else %}
-        {% for field in shops %}
-            <tr id="hover" onclick="window.location.href='../{{ field.id }}'">
-                <td><a href="../{{ field.id}}">{{ field.name }}</a></td>
-                <td>{{ field.description }}</td>
-                <td><img src="../media/{{ field.pictures }}" style="width: 10%;"></td>
-                <td>{{ field.coordinatesx }}</td>
-                <td>{{ field.coordinatesy }}</td>
-            </tr>
-        {% endfor %}
-        {% endif %}
-        
     </table>
     <div id="googleMap"></div>
 

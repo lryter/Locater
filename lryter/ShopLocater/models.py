@@ -4,12 +4,12 @@ from django.core.validators import MaxValueValidator,  MinValueValidator
 CATEGORY_CHOICES = ((1,  'Gastronomie'), 
                                         (2,  'Lebensmittel'), 
                                         (3,  'Elektronik'), 
-                                        (4,  'Textil/Fashion'),
+                                        (4,  'Textil & Fashion'),
                                         (5, 'Fahrzeug'),
                                         (6,  'Schmuck'), 
-                                        (7,  'Fitness/Sport'),
-                                       (8, 'Beauty/Wellness'),  
-                                       (9, 'Abenteuer/Freizeit'), 
+                                        (7,  'Fitness & Sport'),
+                                       (8, 'Beauty & Wellness'),  
+                                       (9, 'Abenteuer & Freizeit'), 
                                        (10, 'Bildung'), 
                                        (11, 'Diverses'))
 

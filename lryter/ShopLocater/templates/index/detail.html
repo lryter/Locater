@@ -93,7 +93,7 @@ function displayRoute(origin, destination, service, display) {
 <h1>{{ shop.name }}</h1>
 
 {% if user.is_authenticated %}
-                <img class="top right" src="../media/{{ shop.pictures }}"><br>
+                <img src="../media/{{ shop.pictures }}"><br>
                 <h2>Name: {{ shop.name }}</h2>
                 <h2>Beschreibung</h2>
                 {{ shop.description }}
@@ -103,5 +103,9 @@ function displayRoute(origin, destination, service, display) {
     <p>Total Distance: <span id="total"></span></p>
 
     <div id="googleMap"></div>
+    <a href="/logout/">Logout</a>
+{% else %}
+    <a href="/login/?next={{ request.path }}">Login</a>
 {% endif %}
+<a href="/home/">Home</a>
 {% endblock %}
